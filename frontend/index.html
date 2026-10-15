@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My To-Do</title>
+   <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="My To-Do home">
+        <span class="brand-icon">✓</span>
+        <span>my tasks<span class="brand-dot">.</span></span>
+      </a>
+      <span class="date-label" id="todayDate"></span>
+    </header>
+
+    <section class="welcome">
+      <p class="eyebrow">YOUR PERSONAL SPACE</p>
+      <h1>Make today <span>count.</span></h1>
+      <p class="subtitle">Small steps every day lead to big results.</p>
+    </section>
+
+    <section class="progress-card" aria-labelledby="progressHeading">
+      <div class="progress-top">
+        <div>
+          <p class="card-label" id="progressHeading">YOUR PROGRESS</p>
+          <p class="progress-count"><span id="completedCount">0</span><span class="muted"> / </span><span id="totalCount">0</span> tasks completed</p>
+        </div>
+        <div class="progress-percent" id="progressPercent">0%</div>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="progress-message" id="progressMessage">Every task starts with a first step.</p>
+    </section>
+
+    <section class="tasks-section" aria-labelledby="tasksHeading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">STAY ON TRACK</p>
+          <h2 id="tasksHeading">Today's tasks</h2>
+        </div>
+        <span class="task-total" id="taskTotalBadge">0 tasks</span>
+      </div>
+
+      <form class="add-form" id="taskForm">
+        <label class="visually-hidden" for="taskInput">New task</label>
+        <input id="taskInput" name="title" type="text" maxlength="200" placeholder="What do you need to do?" autocomplete="off" required>
+        <button class="add-button" type="submit"><span aria-hidden="true">＋</span> Add task</button>
+      </form>
+      <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+
+      <div class="filters" role="group" aria-label="Filter tasks">
+        <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All <span id="allFilterCount">0</span></button>
+        <button class="filter-button" type="button" data-filter="pending" aria-pressed="false">Pending <span id="pendingFilterCount">0</span></button>
+        <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Completed <span id="completedFilterCount">0</span></button>
+      </div>
+
+      <ul class="task-list" id="taskList" aria-label="Your tasks"></ul>
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">✓</div>
+        <h3 id="emptyTitle">A fresh start.</h3>
+        <p id="emptyDescription">Add your first task and build some momentum.</p>
+      </div>
+      <div class="list-footer">
+        <span id="footerMessage">You're doing great. Keep going.</span>
+        <button class="clear-button" id="clearCompleted" type="button" hidden>Clear completed</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Made for a more focused day.</span>
+      <span>One task at a time <span aria-hidden="true">✦</span></span>
+    </footer>
+  </main>
+  <script src="/static/script.js"></script>
+</body>
+</body>
+</html>

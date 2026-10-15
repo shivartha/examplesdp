@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: "DM Sans", Arial, sans-serif;
+  color: #202020;
+  background: #f5f5f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #202020;
+  --muted: #858585;
+  --line: #e9e9e7;
+  --surface: #ffffff;
+  --soft: #f7f7f6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.95), transparent 58%),
+    #f5f5f4;
+}
+
+button, input { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+
+.app {
+  width: min(100% - 36px, 760px);
+  margin: 0 auto;
+  padding: 28px 0 24px;
+}
+
+.topbar, .brand, .progress-top, .section-heading, .add-form,
+.filters, .list-footer, .footer, .task-item, .task-actions {
+  display: flex;
+  align-items: center;
+}
+
+.topbar { justify-content: space-between; padding: 0 2px; }
+.brand {
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.brand-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--ink);
+  color: white;
+  font-size: 20px;
+}
+.brand-dot { color: #888; }
+.date-label { color: #777; font-size: 12px; font-weight: 600; }
+
+.welcome { padding: 52px 0 27px; }
+.eyebrow, .card-label {
+  margin: 0 0 9px;
+  color: #858585;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+h1, h2, h3, p { margin-top: 0; }
+h1 {
+  margin-bottom: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(34px, 6vw, 49px);
+  font-weight: 800;
+  letter-spacing: -2.3px;
+  line-height: 1.12;
+}
+h1 span { color: #929292; }
+.subtitle { margin-bottom: 0; color: #777; font-size: 14px; }
+
+.progress-card {
+  padding: 22px 24px 18px;
+  border: 1px solid #292929;
+  border-radius: 18px;
+  background: #202020;
+  color: white;
+  box-shadow: 0 12px 28px rgba(0,0,0,.07);
+}
+.progress-top { justify-content: space-between; gap: 16px; }
+.card-label { margin-bottom: 9px; color: #b6b6b6; }
+.progress-count { margin: 0; font-size: 14px; font-weight: 600; }
+.muted { color: #969696; }
+.progress-percent {
+  font-family: "Manrope", sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.progress-track {
+  height: 6px;
+  margin-top: 19px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #484848;
+}
+.progress-fill {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: #f4f4f4;
+  transition: width .25s ease;
+}
+.progress-message { margin: 12px 0 0; color: #bcbcbc; font-size: 11px; }
+
+.tasks-section { padding-top: 35px; }
+.section-heading { justify-content: space-between; gap: 12px; margin-bottom: 19px; }
+.section-heading .eyebrow { margin-bottom: 5px; }
+h2 {
+  margin-bottom: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -.8px;
+}
+.task-total {
+  padding: 7px 11px;
+  border: 1px solid #e5e5e3;
+  border-radius: 99px;
+  background: white;
+  color: #777;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.add-form { gap: 9px; }
+.add-form input {
+  min-width: 0;
+  flex: 1;
+  height: 49px;
+  padding: 0 15px;
+  border: 1px solid #e3e3e1;
+  border-radius: 11px;
+  outline: none;
+  background: white;
+  color: var(--ink);
+  font-size: 13px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.add-form input::placeholder { color: #a0a0a0; }
+.add-form input:focus {
+  border-color: #777;
+  box-shadow: 0 0 0 3px rgba(0,0,0,.05);
+}
+.add-button {
+  height: 49px;
+  padding: 0 17px;
+  border: 1px solid var(--ink);
+  border-radius: 11px;
+  background: var(--ink);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.add-button:hover { background: #3a3a3a; }
+.add-button:active { transform: scale(.98); }
+.add-button span { margin-right: 4px; font-size: 17px; vertical-align: -1px; }
+.form-message { min-height: 14px; margin: 6px 2px 0; color: #666; font-size: 11px; }
+
+.filters { gap: 7px; margin: 14px 0 14px; }
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: #777;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.filter-button span {
+  display: grid;
+  min-width: 18px;
+  height: 18px;
+  place-items: center;
+  border-radius: 6px;
+  background: #ececea;
+  color: #686868;
+  font-size: 10px;
+}
+.filter-button:hover { background: #ededeb; }
+.filter-button.active {
+  border-color: #e5e5e3;
+  background: white;
+  color: #202020;
+}
+.filter-button.active span { background: #202020; color: white; }
+
+.task-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.task-item {
+  gap: 12px;
+  min-height: 68px;
+  padding: 13px 14px;
+  border: 1px solid #e8e8e6;
+  border-radius: 12px;
+  background: white;
+  transition: border-color .2s, transform .2s;
+  animation: appear .2s ease both;
+}
+.task-item:hover { border-color: #cfcfcd; }
+.task-check {
+  display: grid;
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
+  place-items: center;
+  border: 1.5px solid #c8c8c6;
+  border-radius: 50%;
+  background: white;
+  color: white;
+  cursor: pointer;
+}
+.task-check:hover { border-color: #333; }
+.task-item.is-complete .task-check { border-color: #202020; background: #202020; }
+.task-check span { font-size: 12px; line-height: 1; }
+.task-content { min-width: 0; flex: 1; }
+.task-title {
+  overflow-wrap: anywhere;
+  margin: 0;
+  color: #292929;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.task-item.is-complete .task-title { color: #999; text-decoration: line-through; }
+.task-status { display: block; margin-top: 4px; color: #999; font-size: 10px; }
+.task-actions { gap: 5px; }
+.icon-button {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #8a8a8a;
+  cursor: pointer;
+}
+.icon-button:hover { background: #f1f1ef; color: #222; }
+.icon-button svg { width: 16px; height: 16px; }
+
+.empty-state {
+  padding: 36px 16px 32px;
+  border: 1px dashed #dcdcd9;
+  border-radius: 13px;
+  text-align: center;
+}
+.empty-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 12px;
+  place-items: center;
+  border: 1px solid #e4e4e2;
+  border-radius: 14px;
+  background: white;
+  color: #444;
+  font-size: 21px;
+}
+.empty-state h3 { margin-bottom: 6px; font-size: 14px; }
+.empty-state p { margin-bottom: 0; color: #888; font-size: 12px; line-height: 1.5; }
+.list-footer {
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
+  color: #929292;
+  font-size: 10px;
+}
+.clear-button {
+  padding: 7px 0 7px 8px;
+  border: 0;
+  background: transparent;
+  color: #555;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.clear-button:hover { color: #111; text-decoration: underline; }
+.footer {
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 34px;
+  padding: 17px 2px 0;
+  border-top: 1px solid #e6e6e4;
+  color: #999;
+  font-size: 10px;
+}
+.footer span:last-child span { color: #555; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 520px) {
+  .app { width: min(100% - 24px, 760px); padding-top: 18px; }
+  .welcome { padding-top: 39px; }
+  .progress-card { padding: 19px 17px 16px; }
+  .add-form { align-items: stretch; flex-direction: column; }
+  .add-button { width: 100%; }
+  .task-item { padding: 11px 10px; gap: 9px; }
+  .task-actions { gap: 0; }
+  .footer { align-items: flex-start; flex-direction: column; gap: 7px; }
+  .date-label { font-size: 10px; }
+}
